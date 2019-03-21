@@ -76,6 +76,9 @@ class App extends Component {
   }
 
   onButtonSubmit = () => {
+    if( !this.state.input ){
+      return;
+    }
     this.setState({ imageUrl : this.state.input })
       fetch('https://gentle-shelf-15430.herokuapp.com/imageurl', {
         method: 'post',
@@ -115,6 +118,7 @@ class App extends Component {
   }
 
   render() {
+
     const { isSignedIn, imageUrl, route, box } = this.state;
     return (
       <div className="App">
